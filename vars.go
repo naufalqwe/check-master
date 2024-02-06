@@ -1,17 +1,9 @@
-package main
+package db
 
-import (
-	"bufio"
-	"sync"
-
-	"github.com/dwisiswant0/cf-check/db"
-)
+import _ "embed"
 
 var (
-	wg sync.WaitGroup
-	sc *bufio.Scanner
-
-	domainMode, showCloudflare bool
-
-	cidrs = db.Prefs
+	//go:embed prefixes.txt
+	prefs string
+	Prefs []string
 )
